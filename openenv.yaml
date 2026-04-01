@@ -1,0 +1,39 @@
+name: sql-query-agent
+version: 1.0.0
+description: SQL Query Agent Environment with OpenEnv-compatible endpoints
+type: openenv
+
+endpoints:
+  reset:
+    path: /reset
+    method: POST
+    description: Reset environment and get task information
+  step:
+    path: /step
+    method: POST
+    description: Execute SQL query and get observation
+  state:
+    path: /state
+    method: GET
+    description: Get current environment state
+  health:
+    path: /health
+    method: GET
+    description: Health check endpoint
+
+schema:
+  observation:
+    task_id: string
+    task_description: string
+    schema_info: object
+    query_result: array
+    error: string
+    reward: float
+    done: boolean
+    feedback: string
+    step_count: integer
+
+  state:
+    current_task_id: string
+    step_count: integer
+    episode_active: boolean
