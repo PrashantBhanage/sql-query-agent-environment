@@ -3,8 +3,8 @@ title: SQL Query Agent Environment
 emoji: 🤖
 colorFrom: blue
 colorTo: green
-sdk: gradio
-sdk_version: "4.44.1"
+sdk: python
+sdk_version: "" # Python spaces use latest installed runtime
 python_version: "3.10"
 app_file: app.py
 pinned: false

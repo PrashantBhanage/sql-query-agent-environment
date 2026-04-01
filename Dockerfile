@@ -16,5 +16,5 @@ RUN mkdir -p /app
 EXPOSE 7860
 EXPOSE 7861
 
-# Run the application (Gradio UI on 7860 and FastAPI API on 7861)
+# Run the application (FastAPI API on 7860)
 CMD ["python", "app.py"]
