@@ -83,13 +83,13 @@ class StateResponse(BaseModel):
 
 class ResetRequest(BaseModel):
     """Request to reset the environment for a new task."""
-    task_id: str = Field(..., description="Task identifier to reset to: 'task_1', 'task_2', etc.")
+    task_id: str = Field("task_1", description="Task identifier to reset to: 'task_1', 'task_2', etc.")
 
 
 class StepRequest(BaseModel):
     """Request to execute a step in the environment."""
     query: str = Field(..., description="SQL SELECT statement to execute.")
-    task_id: str = Field(..., description="Task identifier for the current task.")
+    task_id: str = Field("task_1", description="Task identifier for the current task.")
 
 
 # Alias for compatibility with app.py

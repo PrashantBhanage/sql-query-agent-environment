@@ -287,13 +287,11 @@ async def state():
 @app.post("/reset", response_model=Observation)
 async def reset(request: ResetRequest):
     """Reset the environment for a new task."""
-    env_state.reset(request.task_id)
-    
+    task_id = request.task_id or "task_1"
+    env_state.reset(task_id)
+
     schema_info = get_schema_info()
-    task_description = get_task_description(request.task_id)
-    
-    return Observation(
-        task_id=request.task_id,
+    task_description = get_task_description(task_id)
         task_description=task_description,
         schema_info=schema_info,
         query_result=[],

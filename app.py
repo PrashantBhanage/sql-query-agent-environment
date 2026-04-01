@@ -74,8 +74,8 @@ def create_ui():
         run_button = gr.Button("Run Query")
         step_output = gr.JSON(label="Step Output")
 
-        reset_button.click(lambda t: reset_task(t), inputs=task_id, outputs=reset_output)
-        run_button.click(lambda t, q: execute_task(t, q), inputs=[task_id, query_input], outputs=step_output)
+        reset_button.click(lambda t: reset_task(t), inputs=task_id, outputs=reset_output, api_name="reset_task")
+        run_button.click(lambda t, q: execute_task(t, q), inputs=[task_id, query_input], outputs=step_output, api_name="execute_query")
 
     return demo
 
