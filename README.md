@@ -1,3 +1,14 @@
+---
+title: SQL Query Agent Environment
+emoji: 🤖
+colorFrom: blue
+colorTo: green
+sdk: gradio
+sdk_version: "4.0.0"
+app_file: app.py
+pinned: false
+---
+
 # SQL Query Agent Environment
 
 A minimal but fully working SQL Query Agent Environment for hackathon validation with OpenEnv-compatible endpoints.
@@ -10,6 +21,7 @@ A minimal but fully working SQL Query Agent Environment for hackathon validation
 ├── README.md              # This file
 ├── requirements.txt       # Python dependencies
 ├── openenv.yaml           # OpenEnv configuration
+├── app.py                 # Gradio UI application
 ├── inference.py           # Main inference module
 ├── baseline_inference.py  # Baseline inference module
 ├── models.py              # Pydantic models
