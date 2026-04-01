@@ -292,6 +292,9 @@ async def reset(request: ResetRequest):
 
     schema_info = get_schema_info()
     task_description = get_task_description(task_id)
+
+    return Observation(
+        task_id=task_id,
         task_description=task_description,
         schema_info=schema_info,
         query_result=[],
@@ -308,11 +311,13 @@ async def step(request: StepRequest):
     """Execute a SQL query step."""
     env_state.increment_step()
     
+    task_id = request.task_id or "task_1"
     schema_info = get_schema_info()
-    task_description = get_task_description(request.task_id)
+    task_description = get_task_description(task_id)
     
     # Execute query
-    results, error = execute_read_only_query(request.query)
+    query = request.query or "SELECT 1 as test;"
+    results, error = execute_read_only_query(query)
     
     # Calculate reward based on results
     reward = 0.0
@@ -332,7 +337,7 @@ async def step(request: StepRequest):
         done = True
     
     return Observation(
-        task_id=request.task_id,
+        task_id=task_id,
         task_description=task_description,
         schema_info=schema_info,
         query_result=results,
